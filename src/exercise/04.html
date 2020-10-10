@@ -11,12 +11,30 @@
 
     // 🐨 use that function in place of the divs below with:
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
-    const Message = (props) => {
-      return <div {...props}></div>
+    function Message({subject, greeting}) {
+  return (
+    <div className="message">
+      {greeting}, {subject}
+    </div>
+  )
+}
+
+const propTypes = {
+  string(props, propName, componentName) {
+    if(typeof props[propName] !== "string") {
+      console.error(`you f'ed up passing a "${propName}" prop as a string to ${componentName}`)
     }
+  }
+}
+
+  Message.propTypes = {
+    greeting: propTypes.string,
+    subject: propTypes.string
+  }
+
     const element = (
       <div className="container">
-        {React.createElement(Message, {children: "Hello world"})}
+        {React.createElement(Message, {children: "Hello world", greeting: "123"})}
       </div>
     )
 
