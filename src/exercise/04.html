@@ -11,12 +11,12 @@
 
     // 🐨 use that function in place of the divs below with:
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
-    const message = (props) => {
+    const Message = (props) => {
       return <div {...props}></div>
     }
     const element = (
       <div className="container">
-        {React.createElement(message, {children: "Hello world"})}
+        {React.createElement(Message, {children: "Hello world"})}
       </div>
     )
 
